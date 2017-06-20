@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 public class SgtPetters implements CompactDisc {
 
 	public void play() {
-		System.out.println(1);
+		System.out.println("autoconfig");
 	}
 }
