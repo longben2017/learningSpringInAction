@@ -1,7 +1,9 @@
 package com.learningSpring.chap4.aspectAOP;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -30,5 +32,18 @@ public class Audience {
 	@AfterThrowing("performance()")
 	public void demandRefund(){
 		System.out.println("Demanding a refund!");
+	}
+	
+	@Around("performance()")
+	public void watchPerformance(ProceedingJoinPoint jp ){
+		try {
+			System.out.println("...aspect around...");
+			System.out.println("Silencing cell phones");
+			System.out.println("Taking seats");
+			jp.proceed();
+			System.out.println("CLAP CLAP CLAP!!!");
+		} catch (Throwable e) {
+			System.out.println("Demanding a refund!");
+		}
 	}
 }

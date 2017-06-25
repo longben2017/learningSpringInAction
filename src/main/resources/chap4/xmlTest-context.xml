@@ -16,5 +16,33 @@
 		
 		<aop:aspectj-autoproxy/>
 		
-		<bean class="com.learningSpring.chap4.xmlAOP.Audience"/>
+		<bean id="audience" class="com.learningSpring.chap4.xmlAOP.Audience"/>
+		
+		<aop:config>
+			<aop:aspect ref="audience">
+				<aop:pointcut 
+				id="performPointcut"
+				expression="execution(** com.learningSpring.chap4.xmlAOP.IPerformance.perform(..))" />
+			
+				<aop:before 
+				pointcut-ref="performPointcut"
+				method="silenceCellPhones"/>
+				
+				<aop:before 
+				pointcut-ref="performPointcut"
+				method="takeSeats"/>
+				
+				<aop:after-returning 
+				pointcut-ref="performPointcut"
+				method="applause"/>
+				
+				<aop:after-throwing 
+				pointcut-ref="performPointcut"
+				method="demandRefund"/>
+				
+				<aop:around 
+				pointcut-ref="performPointcut"
+				method="watchperformance"/>
+			</aop:aspect>
+		</aop:config>
 </beans>
