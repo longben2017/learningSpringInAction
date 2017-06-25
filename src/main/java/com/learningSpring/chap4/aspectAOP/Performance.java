@@ -1,4 +1,4 @@
-package com.learningSpring.chap4;
+package com.learningSpring.chap4.aspectAOP;
 
 import org.springframework.stereotype.Component;
 
@@ -7,7 +7,7 @@ public class Performance implements IPerformance {
 
 	@Override
 	public void perform() {
-		System.out.println("start the performance");
+		System.out.println("aspectAOP:start the performance");
 	}
 
 }

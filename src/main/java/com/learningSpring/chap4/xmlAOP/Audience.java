@@ -1,4 +1,4 @@
-package com.learningSpring.chap4.aspectAOP;
+package com.learningSpring.chap4.xmlAOP;
 
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class Audience {
 
-	@Pointcut("execution(** com.learningSpring.chap4.aspectAOP.IPerformance.perform(..))")
+	@Pointcut("execution(** com.learningSpring.chap4.xmlAOP.IPerformance.perform(..))")
 	public void performance(){}
 	
 	@Before("performance()")

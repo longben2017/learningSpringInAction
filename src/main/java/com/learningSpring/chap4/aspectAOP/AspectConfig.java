@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
-@ComponentScan(basePackages = "com.learningSpring.chap4")
+@ComponentScan(basePackages = "com.learningSpring.chap4.aspectAOP")
 @EnableAspectJAutoProxy
 public class AspectConfig {
 
